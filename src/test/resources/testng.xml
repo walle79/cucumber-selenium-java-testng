@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Page Object test example">
+    <parameter name="browser" value="chrome" />
+    <parameter name="appUrl"  value="https://demo.nopcommerce.com/apple-macbook-pro-13-inch" />
+    <test name="sample test">
+        <classes>
+            <class name="Tests.MyAccountTest">
+            </class>
+        </classes>
+    </test>
+</suite>
