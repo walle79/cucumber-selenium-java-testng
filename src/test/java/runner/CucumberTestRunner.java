@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
         monochrome = true, // display step format in console
         plugin = {"pretty", "html:target/site/cucumber-report-default.html", "json:target/site/cucumber.json"},
         snippets = CucumberOptions.SnippetType.CAMELCASE, // generate step format CAMELCASE/ UNDERSCORE
-        tags = "@Login"
+        tags = "@Sort"
 )
 
 public class CucumberTestRunner extends AbstractTestNGCucumberTests {

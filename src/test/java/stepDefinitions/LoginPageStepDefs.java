@@ -25,8 +25,10 @@ public class LoginPageStepDefs {
 
     @When("user login with valid username and password")
     public void userLoginWithValidUsernameAndPassword() throws Exception {
-        String username = excelHelpers.getCellData("username", 1);
+        String username = excelHelpers.getCellData("User Name", 1);
         String password = excelHelpers.getCellData("password", 1);
+        System.out.println(excelHelpers.getCellData("First Name", 1));
+        System.out.println(excelHelpers.getCellData("Last Name", 1));
         loginPage.loginIntoSystem(username, password);
     }
 }

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BasePage {
     WebDriver driver;
@@ -19,6 +20,10 @@ public class BasePage {
 
     public WebElement getElement(By locator) {
         return driver.findElement(locator);
+    }
+
+    public List<WebElement> getElements(By locator) {
+        return driver.findElements(locator);
     }
 
     public WebElement getElementByDynamicLocator(String locator, String value) {
