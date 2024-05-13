@@ -4,7 +4,7 @@ import hooks.CucumberHooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-import pageObjects.LoginPage;
+import pageObjects.SauceLab.LoginPage;
 import utilities.ExcelHelpers;
 
 public class LoginPageStepDefs {
