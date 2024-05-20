@@ -1,7 +1,8 @@
-package pageObjects;
+package pageObjects.SauceLab;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import pageObjects.BasePage;
 
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {

@@ -18,8 +18,22 @@ public class BasePage {
         this.driver = driver;
     }
 
+    private String headerMenuLink = "//*[contains(text(),'%s')]//parent::a";
+    private String button = "//button[text()='%s']";
+    public String getHeaderMenuLink() {
+        return headerMenuLink;
+    }
+
+    public String getButton() {
+        return button;
+    }
+
     public WebElement getElement(By locator) {
         return driver.findElement(locator);
+    }
+
+    public WebElement getElement(String locator) {
+        return driver.findElement(By.xpath(locator));
     }
 
     public List<WebElement> getElements(By locator) {
@@ -39,6 +53,11 @@ public class BasePage {
         getElement(locator).click();
     }
 
+    public void clickElement(String locator) {
+        waitForElementClickable(locator);
+        getElement(locator).click();
+    }
+
     public void sendKeyToElement(By locator, String value) {
         getElement(locator).sendKeys(value);
     }
@@ -53,9 +72,23 @@ public class BasePage {
         explicitWait.until(ExpectedConditions.elementToBeClickable(getElement(locator)));
     }
 
+    public void waitForElementClickable(String locator) {
+        WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        explicitWait.until(ExpectedConditions.elementToBeClickable(getElement(locator)));
+    }
+
     public void clickByJS(By locator) {
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor)driver;
         javascriptExecutor.executeScript("arguments[0].click();", getElement(locator));
+    }
+
+    public void clickByJS(WebElement element) {
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor)driver;
+        javascriptExecutor.executeScript("arguments[0].click();", element);
+    }
+
+    public String getElementCssAttribute(By locator, String cssAttr) {
+        return getElement(locator).getCssValue(cssAttr);
     }
 
     public boolean isElementDisplayed(By locator) {

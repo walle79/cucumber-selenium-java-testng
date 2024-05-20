@@ -1,10 +1,10 @@
-package stepDefinitions;
+package stepDefinitions.SauceLab;
 
 import hooks.CucumberHooks;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pageObjects.HomePage;
+import pageObjects.SauceLab.HomePage;
 import utilities.ExcelHelpers;
 
 import java.util.ArrayList;
@@ -31,10 +31,21 @@ public class HomePageStepDefs {
     @Then("user choose sort low to high")
     public void userChooseSortLowToHigh() {
         defaultProductPrice = homePage.getPriceProductTextList();
-        Collections.sort(defaultProductPrice);
-        System.out.println("Before sort: ----------------------------------------");
+        System.out.println("Default list: ---------------------------------------");
         for (Double price: defaultProductPrice) {
-            System.out.println(price);
+            System.out.print(price + " ");
+        }
+        Collections.reverse(defaultProductPrice);
+        System.out.print("Reverse Default list: ---------------------------------------");
+        for (Double price: defaultProductPrice) {
+            System.out.print(price + " ");
+        }
+        System.out.println("Sort -> Reverse");
+        Collections.sort(defaultProductPrice);
+        Collections.reverse(defaultProductPrice);
+        System.out.print("Before sort: ----------------------------------------");
+        for (Double price: defaultProductPrice) {
+            System.out.print(price + " ");
         }
         homePage.chooseSortOption("Price (low to high)");
     }

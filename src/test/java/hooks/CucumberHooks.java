@@ -40,10 +40,6 @@ public class CucumberHooks {
                 driver = new EdgeDriver();
                 break;
         }
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        driver.manage().window().maximize();
-        driver.get(appUrl);
         excelHelpers = new ExcelHelpers();
         excelHelpers.setExcelFile(GlobalConstants.EXCEL_PATH, "Sheet1");
     }
